@@ -84,7 +84,7 @@ public class ModelElement {
 	 * @param relationName Name of the cross-reference attribute.
 	 * @param source The model element pointing to this element.
 	 */
-	void addRelation(String relationName, ModelElement source) {
+	public void addRelation(String relationName, ModelElement source) {
 		if (relations == null) {
 			relations = new HashMap<String, Collection<ModelElement>>(
 					INITIAL_FEW_ELEMENTS);
@@ -121,7 +121,7 @@ public class ModelElement {
 	 * @param value Value of the attribute.
 	 */
 	@SuppressWarnings("unchecked")
-	void setAttribute(String attrName, String value) {
+	public void setAttribute(String attrName, String value) {
 		int index = type.getAttributeIndex(attrName);
 		if (type.isSetAttribute(attrName)) {
 			@SuppressWarnings("rawtypes")
@@ -143,7 +143,7 @@ public class ModelElement {
 	 * @param attrName Name of the cross-reference attribute.
 	 * @param target The referenced model element
 	 */
-	void setRefAttribute(String attrName, ModelElement target) {
+	public void setRefAttribute(String attrName, ModelElement target) {
 		attributeValues[type.getAttributeIndex(attrName)] = target;
 	}
 
@@ -153,7 +153,7 @@ public class ModelElement {
 	 * @param attrName Name of the multi-valued attribute.
 	 * @param set The collection of values for the attribute
 	 */
-	void setSetAttribute(String attrName, Collection<?> set) {
+	public void setSetAttribute(String attrName, Collection<?> set) {
 		attributeValues[type.getAttributeIndex(attrName)] = set;
 	}
 
@@ -341,7 +341,7 @@ public class ModelElement {
 	 * 
 	 * @param other The element with which to merge this one.
 	 */
-	void merge(ModelElement other) {
+	public void merge(ModelElement other) {
 		this.ignoreLinks = other.ignoreLinks;
 		this.runningID = other.runningID;
 

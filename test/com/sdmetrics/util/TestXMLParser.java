@@ -40,8 +40,7 @@ public class TestXMLParser {
 
 	private XMLParser parser;
 	private TestSaxHandler handler;
-	private final static String TESTFILE = Utils.TEST_UTIL_DIR
-			+ "tst%20 folder/test & file.xml";
+	private final static String TESTFILE = Utils.TEST_UTIL_DIR + "tst/test.xml";
 
 	@Before
 	public void initParser() throws Exception {
@@ -56,15 +55,13 @@ public class TestXMLParser {
 
 	@Test
 	public void accessURL() {
-		URL url = getClass().getResource(
-				"/com/sdmetrics/util/tst%20 folder/test & file.xml");
+		URL url = getClass().getResource("/com/sdmetrics/util/tst/test.xml");
 		assertParses(url.toString());
 	}
 
 	@Test
 	public void accessZipped() {
-		File archive = new File(Utils.TEST_UTIL_DIR
-				+ "tst%20 folder/test archive.zip");
+		File archive = new File(Utils.TEST_UTIL_DIR + "tst/test archive.zip");
 		String zippedFile = "jar:" + archive.toURI() + "!/test & file.xml";
 		assertParses(zippedFile);
 	}

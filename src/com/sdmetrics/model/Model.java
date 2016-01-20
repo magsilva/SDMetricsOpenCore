@@ -166,7 +166,7 @@ public class Model implements Iterable<ModelElement> {
 	 * 
 	 * @param el The model element to add.
 	 */
-	void addElement(ModelElement el) {
+	public void addElement(ModelElement el) {
 		elementsByType.get(el.getType()).add(el);
 	}
 
@@ -174,7 +174,7 @@ public class Model implements Iterable<ModelElement> {
 	 * Removes a model element from this model.
 	 * @param el The model element to remove.
 	 */
-	void removeElement(ModelElement el) {
+	public void removeElement(ModelElement el) {
 		elementsByType.get(el.getType()).remove(el);
 	}
 }
